@@ -18,6 +18,10 @@ app.use(express.urlencoded({ extended: false }));
 // Routes
 app.use('/api/v1/tasks', tasksRoutes);
 
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+
 app.use(notFound);
 app.use(errorHandler);
 
