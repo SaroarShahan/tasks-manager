@@ -19,10 +19,6 @@ app.use(express.urlencoded({ extended: false }));
 // Routes
 app.use('/api/v1/tasks', tasksRoutes);
 
-app.get('/', (req, res) => {
-  res.sendFile('index.html', { root: path.join(__dirname, 'public') });
-});
-
 app.use(notFound);
 app.use(errorHandler);
 
