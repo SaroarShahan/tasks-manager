@@ -6,7 +6,7 @@
     }
   ],
   "functions": {
-    "api/v1/*.js": {
+    "api/*.js": {
       "runtime": "nodejs@20.9.0"
     }
   }
