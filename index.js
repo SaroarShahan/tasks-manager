@@ -11,7 +11,7 @@ const notFound = require('./src/middleware/notFound');
 const tasksRoutes = require('./src/routes/tasksRoutes');
 
 // Middlewares
-app.use(express.static('./public'));
+// app.use(express.static('./public'));
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
