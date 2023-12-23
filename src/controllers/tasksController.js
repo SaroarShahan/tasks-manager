@@ -5,9 +5,11 @@ const { createCustomError } = require('./../utils/customError');
 exports.getAllTasks = asyncHandler(async (req, res) => {
   const tasks = await Task.find();
 
+  console.log('tasks', tasks);
+
   res.status(200).json({
     success: true,
-    results: tasks.length,
+    totalData: tasks.length,
     data: {
       tasks,
     },

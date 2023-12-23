@@ -1,0 +1,21 @@
+components:
+  schemas:
+    Tasks:
+      type: object
+      properties:
+        _id:
+          type: string
+        title:
+          type: string
+        compoleted:
+          type: boolean
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      example:
+        id: 5ebac534954b54139806c112
+        title: This is title
+        completed: false

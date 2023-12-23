@@ -9,6 +9,7 @@ const app = express();
 const errorHandler = require('./middleware/errorHandler');
 const notFound = require('./middleware/notFound');
 const tasksRoutes = require('./routes/tasksRoutes');
+const docsRoutes = require('./routes/docsRoutes');
 
 // Middlewares
 app.use(cors());
@@ -18,10 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 // Routes
 app.use('/api/v1/tasks', tasksRoutes);
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
-
+app.use('/', docsRoutes);
 app.use(notFound);
 app.use(errorHandler);
 
