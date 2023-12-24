@@ -7,10 +7,15 @@ const {
   getTask,
   updateTask,
   deleteTask,
+  deleteAllTasks,
 } = require('../controllers/tasksController');
 
-router.route('/').get(getAllTasks).post(createTask);
-router.route('/:id').get(getTask).patch(updateTask).delete(deleteTask);
+router.get('/', getAllTasks);
+router.post('/', createTask);
+router.get('/:id', getTask);
+router.patch('/:id', updateTask);
+router.route('/delete-all').delete(deleteAllTasks);
+router.delete('/:id', deleteTask);
 
 module.exports = router;
 
@@ -141,4 +146,16 @@ module.exports = router;
  *    responses:
  *      200:
  *        description: Task deleted successfully.
+ */
+
+/**
+ * @swagger
+ * /tasks/delete-all:
+ *    delete:
+ *      summary: Delete all tasks
+ *      description: Delete all tasks
+ *      tags: [Tasks]
+ *      responses:
+ *        200:
+ *          description: All tasks deleted successfully.
  */

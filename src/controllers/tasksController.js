@@ -5,8 +5,6 @@ const { createCustomError } = require('./../utils/customError');
 exports.getAllTasks = asyncHandler(async (req, res) => {
   const tasks = await Task.find();
 
-  console.log('tasks', tasks);
-
   res.status(200).json({
     success: true,
     totalData: tasks.length,
@@ -17,6 +15,7 @@ exports.getAllTasks = asyncHandler(async (req, res) => {
 });
 
 exports.createTask = asyncHandler(async (req, res, next) => {
+  console.log('hee');
   const { title } = req.body;
 
   if (!title) {
@@ -90,6 +89,16 @@ exports.deleteTask = asyncHandler(async (req, res, next) => {
   res.status(200).json({
     success: true,
     message: 'Task deleted successfully',
+    data: null,
+  });
+});
+
+exports.deleteAllTasks = asyncHandler(async (req, res) => {
+  await Task.deleteMany();
+
+  res.status(200).json({
+    success: true,
+    message: 'All tasks deleted successfully',
     data: null,
   });
 });
